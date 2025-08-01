@@ -1,12 +1,14 @@
-public class AddCommand implements Command {
+public class UpdateCommand implements Command {
 
     private Receiver receiver;
+    private Integer index;
     private String firstName;
     private String lastName;
     private String email;
 
-    public AddCommand(Receiver receiver, firstName, String lastName, String email) {
+    public UpdateCommand(Receiver receiver, Integer index, String firstName, String lastName, String email) {
         this.receiver = receiver;
+        this.index = index;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -14,8 +16,6 @@ public class AddCommand implements Command {
 
     @Override
     public void execute() {
-        receiver.addCommand(firstName, lastName, email);
+        receiver.updateCommand(index, firstName, lastName, email);
     }
-
-    public
 }
