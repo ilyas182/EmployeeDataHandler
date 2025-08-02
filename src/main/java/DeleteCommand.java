@@ -10,6 +10,13 @@ public class DeleteCommand implements Command {
 
     @Override
     public void execute() {
-        receiver.deleteCommand();
+        receiver.deleteCommand(index);
     }
+
+
+    @Override
+    public String toString() {
+        return "Delete Command: " + index + "Before" receiver.getDataStore().get(3);
+    }
+
 }

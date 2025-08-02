@@ -18,4 +18,9 @@ public class AddCommand implements Command {
         System.out.printf("%s added successfully\n", firstName + " " + lastName + " " + email);
     }
 
+    @Override
+    public String toString() {
+        return "Add Command: " + firstName + " " + lastName + " " + email;
+    }
+
 }
