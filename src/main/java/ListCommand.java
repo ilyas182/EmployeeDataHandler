@@ -10,4 +10,5 @@ public class ListCommand implements Command {
     public void execute() {
         receiver.listCommand();
     }
+
 }
