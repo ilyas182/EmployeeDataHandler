@@ -5,11 +5,13 @@ public class Receiver {
 
     private List<String[]> dataStore = new ArrayList<>();
 
-    public void addCommand() {
-
+    public void addCommand(String firstName, String lastName, String email) {
+        dataStore.add(new String[]{firstName, lastName, email});
+        System.out.println(dataStore.size() + " commands have been added to data store");
+        dataStore.toString();
     }
 
-    public void updateCommand() {
+    public void updateCommand(Integer index, String firstName, String lastName, String email) {
 
     }
 
@@ -29,4 +31,5 @@ public class Receiver {
     public void storeToFile() {
 
     }
+
 }

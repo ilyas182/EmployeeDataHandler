@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Stack;
 
 public class Client {
@@ -12,10 +14,17 @@ public class Client {
         Stack<Command> history = new Stack<>();  // Create the stack object in memory
 
         // Concrete Commands
-        Command addCommand1 = new AddCommand("");
-
+        Command addCommand1 = new AddCommand(receiver, "ilyas", "effendi", "ilyas2104@gmail.com");
+        Command addCommand2 = new AddCommand(receiver, "ben", "ng", "ben@yahoo.com");
+        history.push(addCommand1);
+        history.push(addCommand2);
+        System.out.println(history.toString());
+        Invoker invoker = new Invoker();
+        invoker.setCommandsForExecution(history.toArray(new Command[0]));
+        invoker.executeCommand(history);
         // !!!!!!!!!!!!!!! We have to Organize our java files into appropriate folders, as per practicum requirements.
         // !!!!!!!!!!!!!!! Need to do javadocs
+
 
     }
 }

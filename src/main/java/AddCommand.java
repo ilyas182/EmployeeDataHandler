@@ -5,7 +5,7 @@ public class AddCommand implements Command {
     private String lastName;
     private String email;
 
-    public AddCommand(Receiver receiver, firstName, String lastName, String email) {
+    public AddCommand(Receiver receiver, String firstName, String lastName, String email) {
         this.receiver = receiver;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -15,7 +15,7 @@ public class AddCommand implements Command {
     @Override
     public void execute() {
         receiver.addCommand(firstName, lastName, email);
+        System.out.printf("%s added successfully\n", firstName + " " + lastName + " " + email);
     }
 
-    public
 }
