@@ -1,5 +1,7 @@
+package exception;
+
 /**
- * Custom class for invalid commands
+ * Custom Exception for invalid commands
  */
 public class InvalidCommandException extends Exception {
     /**
