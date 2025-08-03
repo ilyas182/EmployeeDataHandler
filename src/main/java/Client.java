@@ -26,14 +26,14 @@ public class Client {
 
         // Command List
         Command[] commands = new Command[]{
-                addCommand1,
-//                undoCommand,
+//                addCommand1,
+                undoCommand,
 //                listCommand,
-                addCommand2,
-                listCommand,
+//                addCommand2,
+//                listCommand,
 //                deleteCommand1,
 //                listCommand,
-                updateCommand1,
+//                updateCommand1,
         };
 
         Invoker invoker = new Invoker();

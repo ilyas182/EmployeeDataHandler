@@ -1,4 +1,3 @@
 public interface Command {
-    void execute();
-//    void undo();
+    void execute() throws InvalidCommandException;
 }

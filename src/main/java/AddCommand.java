@@ -1,6 +1,5 @@
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.regex.PatternSyntaxException;
 
 public class AddCommand implements Command {
 
@@ -15,23 +14,19 @@ public class AddCommand implements Command {
         String firstNameClean = firstName.substring(0, 1).toUpperCase() + firstName.substring(1).toLowerCase();
         String lastNameClean = lastName.substring(0, 1).toUpperCase() + lastName.substring(1).toLowerCase();
 
-        if (emailLegal(email)) {
-            this.receiver = receiver;
-            this.firstName = firstName;
-            this.lastName = lastName;
-            this.email = email;
-        } else {
-            System.out.println("Please recheck email validity.");
+        this.receiver = receiver;
+        this.firstName = firstNameClean;
+        this.lastName = lastNameClean;
+        this.email = email;
         }
-    }
 
     @Override
-    public void execute() {
-        try {
-            receiver.addCommand(firstName, lastName, email);
-        } catch (NullPointerException e) {
-            System.out.println("Did not run as email wrong.");
+    public void execute() throws InvalidCommandException {
+        // check legal email or not else throw custom exception InvalidCommandException
+        if (!emailLegal(this.email)) {
+            throw new InvalidCommandException("Incorrect email format: Thrown at Add Command");
         }
+        receiver.addCommand(firstName, lastName, email);
     }
 
     public boolean emailLegal(String email) {

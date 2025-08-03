@@ -9,36 +9,29 @@ public class UpdateCommand implements Command {
     private String lastName;
     private String email;
     private String[] oldValues;
-    private boolean updateEmail = false;
 
     // Create constructor for firstName update
     public UpdateCommand(Receiver receiver, Integer index, String firstName) {
         this.receiver = receiver;
         this.index = index;
-        this.firstName = firstName;
+        this.firstName = firstName.substring(0, 1).toUpperCase() + firstName.substring(1).toLowerCase();
     }
 
     // Create constructor for firstName and lastName update
     public UpdateCommand(Receiver receiver, Integer index, String firstName, String lastName) {
         this.receiver = receiver;
         this.index = index;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.firstName = firstName.substring(0, 1).toUpperCase() + firstName.substring(1).toLowerCase();
+        this.lastName = lastName.substring(0, 1).toUpperCase() + lastName.substring(1).toLowerCase();
     }
 
     // Create constructor for firstName, lastName, email update
     public UpdateCommand(Receiver receiver, Integer index, String firstName, String lastName, String email) {
-        updateEmail = true;
-        if (emailLegal(email)) {
-            this.receiver = receiver;
-            this.index = index;
-            this.firstName = firstName;
-            this.lastName = lastName;
-            this.email = email;
-        } else {
-            this.email = null;
-            System.out.println("Please recheck email validity.");
-        }
+        this.receiver = receiver;
+        this.index = index;
+        this.firstName = firstName.substring(0, 1).toUpperCase() + firstName.substring(1).toLowerCase();
+        this.lastName = lastName.substring(0, 1).toUpperCase() + lastName.substring(1).toLowerCase();
+        this.email = email;
     }
 
     /**
@@ -46,13 +39,16 @@ public class UpdateCommand implements Command {
      * This method calls dynamically calls the Receiver's updateCommand methods based on number of parameters passed
      */
     @Override
-    public void execute() {
+    public void execute() throws InvalidCommandException {
         this.oldValues = new String[]{receiver.getDataStore().get(index - 1)[0], receiver.getDataStore().get(index - 1)[1], receiver.getDataStore().get(index - 1)[2]};
         if (firstName != null && lastName == null && email == null) {
             receiver.updateCommand(index, firstName);
         } else if (firstName != null && lastName != null && email == null) {
             receiver.updateCommand(index, firstName, lastName);
         } else {
+            if (!emailLegal(email)) {
+                throw new InvalidCommandException("Incorrect email format: Thrown at Update Command");
+            }
             receiver.updateCommand(index, firstName, lastName, email);
         }
     }
@@ -84,7 +80,7 @@ public class UpdateCommand implements Command {
 
     @Override
     public String toString() {
-        if (updateEmail && email == null) {
+        if (email == null) {
             return null;
         } else {
             return "Update Command: " + index + " " + firstName + " " + lastName + " " + email;

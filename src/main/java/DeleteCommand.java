@@ -18,7 +18,10 @@ public class DeleteCommand implements Command {
     }
 
     @Override
-    public void execute() {
+    public void execute() throws InvalidCommandException {
+        if (this.index > receiver.getDataStore().size() || this.index < 1) {
+            throw new InvalidCommandException("Incorrect Index Provided: Thrown at Delete Command");
+        }
         oldValues = new String[]{receiver.getDataStore().get(index - 1)[0], receiver.getDataStore().get(index - 1)[1], receiver.getDataStore().get(index-1)[2]};
         receiver.deleteCommand(index);
     }

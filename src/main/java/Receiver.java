@@ -41,12 +41,8 @@ public class Receiver {
     }
 
     public void deleteCommand(Integer index) {
-        try {
-            dataStore.remove(index - 1);
-            System.out.println("Delete");
-        } catch (Exception e) {
-            System.out.println("Delete Action Index Out of Bounds!! Command Ignored!!");
-        }
+        dataStore.remove(index - 1);
+        System.out.println("Delete");
     }
 
     public void listCommand() {

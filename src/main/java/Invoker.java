@@ -26,14 +26,18 @@ public class Invoker {
             try {
                 command.execute();
 
-                if (command.toString() != null) {
-                    // Stack should only hold Add Update Delete commands no need to add List command cuz it does not support undo
-                    if (command instanceof AddCommand || command instanceof UpdateCommand || command instanceof DeleteCommand) {
-                        history.push(command);
-                    }
+//                if (command.toString() != null) {
+//                    // Stack should only hold Add Update Delete commands no need to add List command cuz it does not support undo
+//                    if (command instanceof AddCommand || command instanceof UpdateCommand || command instanceof DeleteCommand) {
+//                        history.push(command);
+//                    }
+
+                if (command instanceof AddCommand || command instanceof UpdateCommand || command instanceof DeleteCommand) {
+                    history.push(command);
                 }
-            } catch (Exception e) {
-                System.out.println("Exception Caught at Invoker");
+            } catch (InvalidCommandException e) {
+                System.out.println("Exception Caught at Invoker: Illegal Argument Exception");
+                System.out.println(e.getMessage());
             }
         }
     }
