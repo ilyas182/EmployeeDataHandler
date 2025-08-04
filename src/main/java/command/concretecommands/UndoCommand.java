@@ -32,8 +32,13 @@ public class UndoCommand implements Command {
      * Method to function name for checking if undoable
      * @return String
      */
-    public String isUndoable() {
-        return "undo";
+    public boolean isUndoable() {
+        return false;
+    }
+
+    @Override
+    public void undo() {
+        receiver.undoCommand();
     }
 }
 

@@ -153,7 +153,15 @@ public class UpdateCommand implements Command {
      * Method to function name for checking if undoable
      * @return String
      */
-    public String isUndoable() {
-        return "update";
+    public boolean isUndoable() {
+        return true;
+    }
+
+    @Override
+    public void undo() {
+//        String[] oldValues = ((UpdateCommand) lastCommand).getOldValues();
+//            Integer index = ((UpdateCommand) lastCommand).getIndex();
+//            this.updateCommand(index, oldValues[0], oldValues[1], oldValues[2]);
+        receiver.updateCommand(index, oldValues[0], oldValues[1], oldValues[2]);
     }
 }

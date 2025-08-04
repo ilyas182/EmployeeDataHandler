@@ -119,17 +119,19 @@ public class Receiver {
         Command lastCommand = history.pop();
         System.out.println("Undo");
 
-        if (lastCommand.isUndoable().equals("add")) {
-            this.deleteCommand(dataStore.size());
-        } else if (lastCommand.isUndoable().equals("update")) {
-            String[] oldValues = ((UpdateCommand) lastCommand).getOldValues();
-            Integer index = ((UpdateCommand) lastCommand).getIndex();
-            this.updateCommand(index, oldValues[0], oldValues[1], oldValues[2]);
-        } else { // Undo command.concretecommands.DeleteCommand
-            String[] oldValues = ((DeleteCommand) lastCommand).getOldValues();
-            Integer index = ((DeleteCommand) lastCommand).getIndex();
-            this.addCommand(oldValues[0], oldValues[1], oldValues[2]);
-        }
+        lastCommand.undo();
+
+//        if (lastCommand.isUndoable().equals("add")) {
+//            this.deleteCommand(dataStore.size());
+//        } else if (lastCommand.isUndoable().equals("update")) {
+//            String[] oldValues = ((UpdateCommand) lastCommand).getOldValues();
+//            Integer index = ((UpdateCommand) lastCommand).getIndex();
+//            this.updateCommand(index, oldValues[0], oldValues[1], oldValues[2]);
+//        } else { // Undo command.concretecommands.DeleteCommand
+//            String[] oldValues = ((DeleteCommand) lastCommand).getOldValues();
+//            Integer index = ((DeleteCommand) lastCommand).getIndex();
+//            this.addCommand(oldValues[0], oldValues[1], oldValues[2]);
+//        }
     }
 
 

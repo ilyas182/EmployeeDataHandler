@@ -31,7 +31,9 @@ public class ListCommand implements Command {
      * Method to function name for checking if undoable
      * @return String
      */
-    public String isUndoable() {
-        return "list";
+    public boolean isUndoable() {
+        return false;
     }
+
+    public void undo() {}
 }

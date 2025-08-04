@@ -82,7 +82,11 @@ public class DeleteCommand implements Command {
      * Method to function name for checking if undoable
      * @return String
      */
-    public String isUndoable() {
-        return "delete";
+    public boolean isUndoable() {
+        return true;
+    }
+
+    public void undo(){
+        receiver.addCommand(oldValues[0], oldValues[1], oldValues[2]);
     }
 }

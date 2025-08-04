@@ -19,7 +19,7 @@ public interface Command {
      * Method to function name for checking if undoable
      * @return String
      */
-    String isUndoable();
+    boolean isUndoable();
 
     /**
      * Undo method
