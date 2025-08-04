@@ -26,4 +26,12 @@ public class ListCommand implements Command {
     public void execute() {
         receiver.listCommand();
     }
+
+    /**
+     * Method to return true if the command is undoable.
+     * @return boolean true if undoable and false if not.
+     */
+    public boolean isUndoable() {
+        return false;
+    }
 }
