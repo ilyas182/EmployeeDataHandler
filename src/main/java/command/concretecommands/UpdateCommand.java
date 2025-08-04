@@ -148,11 +148,12 @@ public class UpdateCommand implements Command {
         return "Update command.Command: " + index + " " + firstName + " " + lastName + " " + email;
     }
 
+
     /**
-     * Method to return true if the command is undoable.
-     * @return boolean true if undoable and false if not.
+     * Method to function name for checking if undoable
+     * @return String
      */
-    public boolean isUndoable() {
-        return true;
+    public String isUndoable() {
+        return "update";
     }
 }

@@ -119,9 +119,9 @@ public class Receiver {
         Command lastCommand = history.pop();
         System.out.println("Undo");
 
-        if (lastCommand instanceof AddCommand) {
+        if (lastCommand.isUndoable().equals("add")) {
             this.deleteCommand(dataStore.size());
-        } else if (lastCommand instanceof UpdateCommand) {
+        } else if (lastCommand.isUndoable().equals("update")) {
             String[] oldValues = ((UpdateCommand) lastCommand).getOldValues();
             Integer index = ((UpdateCommand) lastCommand).getIndex();
             this.updateCommand(index, oldValues[0], oldValues[1], oldValues[2]);
