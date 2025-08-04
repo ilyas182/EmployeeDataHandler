@@ -35,5 +35,9 @@ public class ListCommand implements Command {
         return false;
     }
 
+    /**
+     * This method does not do anything for ListCommand object
+     */
+    @Override
     public void undo() {}
 }

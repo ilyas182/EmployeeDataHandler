@@ -36,6 +36,9 @@ public class UndoCommand implements Command {
         return false;
     }
 
+    /**
+     * Calls the receiver undo method
+     */
     @Override
     public void undo() {
         receiver.undoCommand();

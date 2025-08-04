@@ -30,41 +30,41 @@ public class AddCommand implements Command {
         this.receiver = receiver;
     }
 
-    /**
-     * Constructs a partially initialized AddCommand.
-     * Note: This command will not be executable until all data is provided.
-     *
-     * @param receiver The receiver object that will execute the command.
-     * @param firstName The first name for the new record.
-     */
+//    /**
+//     * Constructs a partially initialized AddCommand.
+//     * Note: This command will not be executable until all data is provided.
+//     *
+//     * @param receiver The receiver object that will execute the command.
+//     * @param firstName The first name for the new record.
+//     */
 //    public AddCommand(Receiver receiver, String firstName){
 //        this.receiver = receiver;
 //        this.firstName = firstName;
 //    }
 
-    /**
-     * Constructs a partially initialized AddCommand.
-     * Note: This command will not be executable until all data is provided.
-     *
-     * @param receiver The receiver object that will execute the command.
-     * @param firstName The first name for the new record.
-     * @param lastName The last name for the new record.
-     */
+//    /**
+//     * Constructs a partially initialized AddCommand.
+//     * Note: This command will not be executable until all data is provided.
+//     *
+//     * @param receiver The receiver object that will execute the command.
+//     * @param firstName The first name for the new record.
+//     * @param lastName The last name for the new record.
+//     */
 //    public AddCommand(Receiver receiver, String firstName, String lastName) {
 //        this.receiver = receiver;
 //        this.firstName = firstName;
 //        this.lastName = lastName;
 //    }
 
-    /**
-     * Constructs a fully initialized AddCommand ready for execution.
-     * This constructor formats the first and last names into title case.
-     *
-     * @param receiver The receiver object that will execute the command.
-     * @param firstName The first name for the new record.
-     * @param lastName The last name for the new record.
-     * @param email The email address for the new record.
-     */
+//    /**
+//     * Constructs a fully initialized AddCommand ready for execution.
+//     * This constructor formats the first and last names into title case.
+//     *
+//     * @param receiver The receiver object that will execute the command.
+//     * @param firstName The first name for the new record.
+//     * @param lastName The last name for the new record.
+//     * @param email The email address for the new record.
+//     */
 //    public AddCommand(Receiver receiver, String firstName, String lastName, String email) {
 //        // Need ensure that the Case of the name etc is correct as per requirements in the practicum
 //        if (firstName.isEmpty() && lastName.isEmpty()) {
@@ -90,7 +90,13 @@ public class AddCommand implements Command {
 //            this.email = email;
 //        }
 //    }
-
+    /**
+     * Constructs a fully initialized AddCommand ready for execution.
+     * This constructor formats the first and last names into title case.
+     *
+     * @param receiver The receiver object that will execute the command.
+     * @param param The first, last name & email for the new record
+     */
     public AddCommand(Receiver receiver, String param) {
         String[] splitParam = param.split(" ");
         firstName = splitParam[0];
@@ -174,8 +180,10 @@ public class AddCommand implements Command {
     }
 
     /**
-     *
+     * This method calls the deleteCommand to delete the added values using AddCommand
+     * @author ilyas & ben
      */
+    @Override
     public void undo(){
         receiver.deleteCommand(receiver.getDataStore().size());
     }

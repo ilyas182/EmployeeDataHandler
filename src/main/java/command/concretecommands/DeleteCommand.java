@@ -86,6 +86,11 @@ public class DeleteCommand implements Command {
         return true;
     }
 
+    /**
+     * This method calls the receiver {@code addCommand} to undo the deleteCommand object
+     * @author ilyas & ben
+     */
+    @Override
     public void undo(){
         receiver.addCommand(oldValues[0], oldValues[1], oldValues[2]);
     }
