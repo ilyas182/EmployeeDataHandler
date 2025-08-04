@@ -1,5 +1,6 @@
 package receiver;
 
+import client.Client;
 import command.concretecommands.AddCommand;
 import command.Command;
 import command.concretecommands.DeleteCommand;
@@ -21,7 +22,7 @@ import java.util.Stack;
  * Concrete command classes will call the receiver methods with filtered legal parameters.
  */
 public class Receiver {
-    protected static final Stack<Command> history = new Stack<>();
+
     private List<String[]> dataStore = new ArrayList<>();
 
     /**
@@ -32,13 +33,13 @@ public class Receiver {
         return dataStore;
     }
 
-    /**
-     * get history stack
-     * @return history a stack of Command objects (add, update, delete)
-     */
-    public Stack<Command> getHistory() {
-        return history;
-    }
+//    /**
+//     * get history stack
+//     * @return history a stack of Command objects (add, update, delete)
+//     */
+//    public Stack<Command> getHistory() {
+//        return history;
+//    }
 
     /**
      * addCommand method for adding an entry to data store.
@@ -111,12 +112,12 @@ public class Receiver {
      * This method is called by the respective Concrete Command instances.
      */
     public void undoCommand() {
-        if (history.size() <= 0) {
+        if (Client.history.size() <= 0) {
             System.out.println("Nothing to undo");
             return;
         }
 
-        Command lastCommand = history.pop();
+        Command lastCommand = Client.history.pop();
         System.out.println("Undo");
 
         lastCommand.undo();

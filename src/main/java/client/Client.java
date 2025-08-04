@@ -5,6 +5,8 @@ import command.concretecommands.*;
 import invoker.Invoker;
 import receiver.Receiver;
 
+import java.util.Stack;
+
 /**
  * The Client creates and configures the concrete command objects. The client must pass all of the command parameters,
  * including a receiver instance, into the command’s constructor.
@@ -12,11 +14,13 @@ import receiver.Receiver;
  */
 public class Client {
 
+    public static final Stack<Command> history = new Stack<>();
     /**
      * Main Method for Application Initiation
      * @param args default main method args
      */
     public static void main(String[] args) {
+
 
         // Create receiver as client needs to pass receiver instance to the command constructors
         Receiver receiver = new Receiver();
@@ -67,13 +71,13 @@ public class Client {
         Invoker invoker = new Invoker();
         invoker.setCommandsForExecution(commands);
 
-        invoker.executeCommand(receiver.getHistory());
+        invoker.executeCommand(history);
 
         System.out.println("----------- Stack Info ------------");
-        System.out.println("Stack Size Left: " + receiver.getHistory().size());
+        System.out.println("Stack Size Left: " + history.size());
 
-        for (int i = 0; i < receiver.getHistory().size(); i++) {
-            System.out.println(receiver.getHistory().get(i));
+        for (int i = 0; i < history.size(); i++) {
+            System.out.println(history.get(i));
         }
 
         receiver.storeToFile();
