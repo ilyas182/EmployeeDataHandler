@@ -14,4 +14,10 @@ public interface Command {
      * @throws InvalidCommandException if the command cannot be executed due to an invalid state or missing parameters.
      */
     void execute() throws InvalidCommandException;
+
+    /**
+     * Method to return true if the command is undoable.
+     * @return boolean true if undoable and false if not.
+     */
+    boolean isUndoable();
 }

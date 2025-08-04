@@ -27,5 +27,13 @@ public class UndoCommand implements Command {
     public void execute() {
         receiver.undoCommand();
     }
+
+    /**
+     * Method to return true if the command is undoable.
+     * @return boolean true if undoable and false if not.
+     */
+    public boolean isUndoable() {
+        return false;
+    }
 }
 

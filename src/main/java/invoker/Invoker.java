@@ -34,9 +34,11 @@ public class Invoker {
         for (Command command : cmdToExecute) {
             try {
                 command.execute();
-                if (command instanceof AddCommand || command instanceof UpdateCommand || command instanceof DeleteCommand) {
+
+                if (command.isUndoable()) {
                     history.push(command);
                 }
+
             } catch (InvalidCommandException e) {
                 System.out.println("Exception Caught at invoker.Invoker: Illegal Argument Exception");
                 System.out.println(e.getMessage());

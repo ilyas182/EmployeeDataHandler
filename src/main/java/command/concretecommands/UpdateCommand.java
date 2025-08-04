@@ -147,4 +147,12 @@ public class UpdateCommand implements Command {
     public String toString() {
         return "Update command.Command: " + index + " " + firstName + " " + lastName + " " + email;
     }
+
+    /**
+     * Method to return true if the command is undoable.
+     * @return boolean true if undoable and false if not.
+     */
+    public boolean isUndoable() {
+        return true;
+    }
 }

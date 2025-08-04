@@ -134,4 +134,12 @@ public class AddCommand implements Command {
     public String toString() {
         return "Add command.Command: " + this.firstName + " " + this.lastName + " " + this.email;
     }
+
+    /**
+     * Method to return true if the command is undoable.
+     * @return boolean true if undoable and false if not.
+     */
+    public boolean isUndoable() {
+        return true;
+    }
 }

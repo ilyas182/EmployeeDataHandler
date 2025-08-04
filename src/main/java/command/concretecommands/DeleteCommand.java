@@ -77,4 +77,12 @@ public class DeleteCommand implements Command {
     public String toString() {
         return "Delete command.Command: " + index;
     }
+
+    /**
+     * Method to return true if the command is undoable.
+     * @return boolean true if undoable and false if not.
+     */
+    public boolean isUndoable() {
+        return true;
+    }
 }
