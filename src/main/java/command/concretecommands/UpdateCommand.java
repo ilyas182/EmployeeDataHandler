@@ -4,6 +4,7 @@ import command.Command;
 import exception.InvalidCommandException;
 import receiver.Receiver;
 
+import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -28,10 +29,10 @@ public class UpdateCommand implements Command {
      * @param receiver The receiver object that will execute the command.
      * @param index The index to be updated.
      */
-    public UpdateCommand(Receiver receiver, Integer index) {
-        this.receiver = receiver;
-        this.index = index;
-    }
+//    public UpdateCommand(Receiver receiver, Integer index) {
+//        this.receiver = receiver;
+//        this.index = index;
+//    }
 
     /**
      * Constructs an UpdateCommand for firstName update.
@@ -40,11 +41,11 @@ public class UpdateCommand implements Command {
      * @param index The index to be updated.
      * @param firstName The first name to be updated.
      */
-    public UpdateCommand(Receiver receiver, Integer index, String firstName) {
-        this.receiver = receiver;
-        this.index = index;
-        this.firstName = firstName.substring(0, 1).toUpperCase() + firstName.substring(1).toLowerCase();
-    }
+//    public UpdateCommand(Receiver receiver, Integer index, String firstName) {
+//        this.receiver = receiver;
+//        this.index = index;
+//        this.firstName = firstName.substring(0, 1).toUpperCase() + firstName.substring(1).toLowerCase();
+//    }
 
     /**
      * Constructs an UpdateCommand for firstName and lastName update.
@@ -54,12 +55,12 @@ public class UpdateCommand implements Command {
      * @param firstName The first name to be updated.
      * @param lastName The last name to be updated.
      */
-    public UpdateCommand(Receiver receiver, Integer index, String firstName, String lastName) {
-        this.receiver = receiver;
-        this.index = index;
-        this.firstName = firstName.substring(0, 1).toUpperCase() + firstName.substring(1).toLowerCase();
-        this.lastName = lastName.substring(0, 1).toUpperCase() + lastName.substring(1).toLowerCase();
-    }
+//    public UpdateCommand(Receiver receiver, Integer index, String firstName, String lastName) {
+//        this.receiver = receiver;
+//        this.index = index;
+//        this.firstName = firstName.substring(0, 1).toUpperCase() + firstName.substring(1).toLowerCase();
+//        this.lastName = lastName.substring(0, 1).toUpperCase() + lastName.substring(1).toLowerCase();
+//    }
 
     /**
      * Constructs an UpdateCommand for firstName, lastName and email update.
@@ -70,13 +71,41 @@ public class UpdateCommand implements Command {
      * @param lastName The last name to be updated.
      * @param email The email to be updated.
      */
-    public UpdateCommand(Receiver receiver, Integer index, String firstName, String lastName, String email) {
+//    public UpdateCommand(Receiver receiver, Integer index, String firstName, String lastName, String email) {
+//        this.receiver = receiver;
+//        this.index = index;
+//        this.firstName = firstName.substring(0, 1).toUpperCase() + firstName.substring(1).toLowerCase();
+//        this.lastName = lastName.substring(0, 1).toUpperCase() + lastName.substring(1).toLowerCase();
+//        this.email = email;
+//    }
+
+    public UpdateCommand(Receiver receiver, String param) {
         this.receiver = receiver;
-        this.index = index;
-        this.firstName = firstName.substring(0, 1).toUpperCase() + firstName.substring(1).toLowerCase();
-        this.lastName = lastName.substring(0, 1).toUpperCase() + lastName.substring(1).toLowerCase();
-        this.email = email;
+        String[] splitParams = param.split(" ");
+        if (splitParams.length == 1) {
+            this.index = Integer.parseInt(splitParams[0]);
+        } else if (splitParams.length == 2) {
+            this.index = Integer.parseInt(splitParams[0]);
+            this.firstName = splitParams[1];
+        } else if (splitParams.length == 3) {
+            this.index = Integer.parseInt(splitParams[0]);
+            this.firstName = splitParams[1];
+            this.lastName = splitParams[2];
+        } else if (splitParams.length == 4) {
+            this.index = Integer.parseInt(splitParams[0]);
+            this.firstName = splitParams[1];
+            this.lastName = splitParams[2];
+            this.email = splitParams[3];
+        }
+
+        if (firstName != null) {
+            this.firstName = firstName.substring(0, 1).toUpperCase() + firstName.substring(1).toLowerCase();
+        }
+        if (lastName != null) {
+            this.lastName = lastName.substring(0, 1).toUpperCase() + lastName.substring(1).toLowerCase();
+        }
     }
+
 
     /**
      * Executes the primary action of the update command.
