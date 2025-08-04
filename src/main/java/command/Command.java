@@ -20,4 +20,9 @@ public interface Command {
      * @return String
      */
     String isUndoable();
+
+    /**
+     * Undo method
+     */
+    void undo();
 }
