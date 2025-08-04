@@ -29,11 +29,11 @@ public class UndoCommand implements Command {
     }
 
     /**
-     * Method to return true if the command is undoable.
-     * @return boolean true if undoable and false if not.
+     * Method to function name for checking if undoable
+     * @return String
      */
-    public boolean isUndoable() {
-        return false;
+    public String isUndoable() {
+        return "undo";
     }
 }
 

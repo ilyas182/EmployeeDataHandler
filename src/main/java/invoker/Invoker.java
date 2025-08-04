@@ -35,7 +35,7 @@ public class Invoker {
             try {
                 command.execute();
 
-                if (command.isUndoable()) {
+                if (command.isUndoable().equals("add") || command.isUndoable().equals("update") || command.isUndoable().equals("delete")) {
                     history.push(command);
                 }
 

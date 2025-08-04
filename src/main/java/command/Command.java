@@ -16,8 +16,8 @@ public interface Command {
     void execute() throws InvalidCommandException;
 
     /**
-     * Method to return true if the command is undoable.
-     * @return boolean true if undoable and false if not.
+     * Method to function name for checking if undoable
+     * @return String
      */
-    boolean isUndoable();
+    String isUndoable();
 }
