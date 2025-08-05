@@ -66,7 +66,7 @@ public class DeleteCommand implements Command {
             throw new InvalidCommandException("Incorrect Index Provided: Thrown at Delete command.Command");
         }
         oldValues = new String[]{receiver.getDataStore().get(index - 1)[0], receiver.getDataStore().get(index - 1)[1], receiver.getDataStore().get(index-1)[2]};
-        receiver.deleteCommand(index);
+        receiver.delete(index);
         System.out.println("Delete");
     }
 
@@ -93,6 +93,6 @@ public class DeleteCommand implements Command {
      */
     @Override
     public void undo(){
-        receiver.addCommand(oldValues[0], oldValues[1], oldValues[2]);
+        receiver.add(oldValues[0], oldValues[1], oldValues[2]);
     }
 }

@@ -14,20 +14,20 @@ import java.util.Stack;
  */
 public class Client {
 
-    public static final Stack<Command> history = new Stack<>();
     /**
      * Main Method for Application Initiation
      * @param args default main method args
      */
     public static void main(String[] args) {
 
+        Stack<Command> history = new Stack<>();
 
         // Create receiver as client needs to pass receiver instance to the command constructors
         Receiver receiver = new Receiver();
 
         // Concrete Commands
         Command listCommand = new ListCommand(receiver);
-        Command undoCommand = new UndoCommand(receiver);
+        Command undoCommand = new UndoCommand(receiver, history);
         Command addCommand1 = new AddCommand(receiver, "Ben Ng ...@gmail.com");
         Command addCommand2 = new AddCommand(receiver, "Benben NgNg ben@gmail.com");
         Command addCommand3 = new AddCommand(receiver, "ben super hello@gmail.com");
@@ -74,13 +74,6 @@ public class Client {
         invoker.setCommandsForExecution(commands);
         invoker.executeCommand(history);
 
-//        System.out.println("----------- Stack Info ------------");
-//        System.out.println("Stack Size Left: " + history.size());
-//
-//        for (int i = 0; i < history.size(); i++) {
-//            System.out.println(history.get(i));
-//        }
-//
-//        receiver.storeToFile();
+        receiver.storeToFile();
     }
 }

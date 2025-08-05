@@ -81,7 +81,7 @@ public class AddCommand implements Command {
             throw new InvalidCommandException("Incorrect email format: Thrown at Add command.Command");
         }
         System.out.println("add");
-        receiver.addCommand(firstName, lastName, email);
+        receiver.add(firstName, lastName, email);
     }
 
     /**
@@ -126,6 +126,7 @@ public class AddCommand implements Command {
      */
     @Override
     public void undo(){
-        receiver.deleteCommand(receiver.getDataStore().size());
+        receiver.delete(receiver.getDataStore().size());
+
     }
 }

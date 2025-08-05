@@ -70,16 +70,16 @@ public class UpdateCommand implements Command {
           } else {
             if (firstName != null && lastName == null && email == null) {
                 System.out.println("update");
-                receiver.updateCommand(index, firstName);
+                receiver.update(index, firstName);
             } else if (firstName != null && lastName != null && email == null) {
                 System.out.println("update");
-                receiver.updateCommand(index, firstName, lastName);
+                receiver.update(index, firstName, lastName);
             } else {
                 if (!emailLegal(email)) {
                     throw new InvalidCommandException("Incorrect email format: Thrown at Update command.Command");
                 }
                 System.out.println("update");
-                receiver.updateCommand(index, firstName, lastName, email);
+                receiver.update(index, firstName, lastName, email);
             }
         }
     }
@@ -142,6 +142,6 @@ public class UpdateCommand implements Command {
      */
     @Override
     public void undo() {
-        receiver.updateCommand(index, oldValues[0], oldValues[1], oldValues[2]);
+        receiver.update(index, oldValues[0], oldValues[1], oldValues[2]);
     }
 }

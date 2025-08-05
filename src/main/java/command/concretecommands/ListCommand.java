@@ -24,7 +24,7 @@ public class ListCommand implements Command {
      */
     @Override
     public void execute() {
-        receiver.listCommand();
+        receiver.list();
     }
 
     /**

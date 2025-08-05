@@ -5,20 +5,24 @@ import command.Command;
 import exception.InvalidCommandException;
 import receiver.Receiver;
 
+import java.util.Stack;
+
 /**
  *  A concrete command responsible for undoing the last performed action.
  */
 public class UndoCommand implements Command {
 
     private Receiver receiver;
+    Stack<Command> history;
 
     /**
      * Constructs a fully initialized UndoCommand ready for execution.
      *
      * @param receiver The receiver object that will execute the command.
      */
-    public UndoCommand(Receiver receiver) {
+    public UndoCommand(Receiver receiver, Stack<Command> history) {
         this.receiver = receiver;
+        this.history = history;
     }
 
     /**
@@ -26,11 +30,11 @@ public class UndoCommand implements Command {
      */
     @Override
     public void execute() {
-        if (Client.history.size() <= 0) {
+        if (history.size() <= 0) {
             System.out.println("Nothing to undo");
             return;
         }
-        Command lastCommand = Client.history.pop();
+        Command lastCommand = history.pop();
         System.out.println("Undo");
         lastCommand.undo();
     }

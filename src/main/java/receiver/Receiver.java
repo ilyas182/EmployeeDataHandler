@@ -1,12 +1,5 @@
 package receiver;
 
-import client.Client;
-import command.concretecommands.AddCommand;
-import command.Command;
-import command.concretecommands.DeleteCommand;
-import command.concretecommands.UndoCommand;
-import command.concretecommands.UpdateCommand;
-
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -40,7 +33,7 @@ public class Receiver {
      * @param lastName last name to be added.
      * @param email email to be added.
      */
-    public void addCommand(String firstName, String lastName, String email) {
+    public void add(String firstName, String lastName, String email) {
         dataStore.add(new String[]{firstName, lastName, email});
     }
 
@@ -49,7 +42,7 @@ public class Receiver {
      * @param index index to be updated.
      * @param firstName first name to be updated.
      */
-    public void updateCommand(Integer index, String firstName) {
+    public void update(Integer index, String firstName) {
         dataStore.get(index - 1)[0] = firstName;
     }
 
@@ -59,7 +52,7 @@ public class Receiver {
      * @param firstName first name to be updated.
      * @param lastName last name to be udpated.
      */
-    public void updateCommand(Integer index, String firstName, String lastName) {
+    public void update(Integer index, String firstName, String lastName) {
         dataStore.get(index - 1)[0] = firstName;
         dataStore.get(index - 1)[1] = lastName;
     }
@@ -71,7 +64,7 @@ public class Receiver {
      * @param lastName last name to be updated.
      * @param email email to be updated.
      */
-    public void updateCommand(Integer index, String firstName, String lastName, String email) {
+    public void update(Integer index, String firstName, String lastName, String email) {
         dataStore.get(index - 1)[0] = firstName;
         dataStore.get(index - 1)[1] = lastName;
         dataStore.get(index - 1)[2] = email;
@@ -81,14 +74,14 @@ public class Receiver {
      * deleteCommand for deleting an existing data entry at particular index.
      * @param index index to be deleted.
      */
-    public void deleteCommand(Integer index) {
+    public void delete(Integer index) {
         dataStore.remove(index - 1);
     }
 
     /**
      * listCommand for listing out all entries in the data store.
      */
-    public void listCommand() {
+    public void list() {
         System.out.println("List");
         for (int i = 0; i < dataStore.size(); i++) {
             System.out.printf("%02d. %s %s %s\n", i+1, dataStore.get(i)[0], dataStore.get(i)[1], dataStore.get(i)[2]);
