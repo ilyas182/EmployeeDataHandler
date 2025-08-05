@@ -1,8 +1,6 @@
 package command.concretecommands;
 
-import client.Client;
 import command.Command;
-import exception.InvalidCommandException;
 import receiver.Receiver;
 
 import java.util.Stack;

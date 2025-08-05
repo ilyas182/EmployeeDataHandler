@@ -1,7 +1,6 @@
 package command.concretecommands;
 
 import command.Command;
-import exception.InvalidCommandException;
 import receiver.Receiver;
 
 /**
