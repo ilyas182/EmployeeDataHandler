@@ -1,6 +1,7 @@
 package command.concretecommands;
 
 import command.Command;
+import exception.InvalidCommandException;
 import receiver.Receiver;
 
 import java.util.Stack;
@@ -27,10 +28,11 @@ public class UndoCommand implements Command {
      * Executes the primary action of the add command.
      */
     @Override
-    public void execute() {
+    public void execute() throws InvalidCommandException {
         if (history.size() <= 0) {
-            System.out.println("Nothing to undo");
-            return;
+            throw new InvalidCommandException("Nothing to undo.");
+//            System.out.println("Nothing to undo");
+//            return;
         }
         Command lastCommand = history.pop();
         System.out.println("Undo");

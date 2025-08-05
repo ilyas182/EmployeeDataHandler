@@ -31,9 +31,9 @@ public class DeleteCommand implements Command {
      * @param receiver The receiver object that will execute the command.
      * @param index The index to be deleted.
      */
-    public DeleteCommand(Receiver receiver, Integer index) {
+    public DeleteCommand(Receiver receiver, String index) {
         this.receiver = receiver;
-        this.index = index;
+        this.index = Integer.parseInt(index);
     }
 
     /**
@@ -89,7 +89,6 @@ public class DeleteCommand implements Command {
 
     /**
      * This method calls the receiver {@code addCommand} to undo the deleteCommand object
-     * @author ilyas & ben
      */
     @Override
     public void undo(){

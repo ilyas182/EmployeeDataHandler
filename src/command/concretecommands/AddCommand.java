@@ -34,7 +34,7 @@ public class AddCommand implements Command {
      * This constructor formats the first and last names into title case.
      *
      * @param receiver The receiver object that will execute the command.
-     * @param param The first, last name & email for the new record
+     * @param param The first, last name, email for the new record
      */
     public AddCommand(Receiver receiver, String param) {
         String[] splitParam = param.split(" ");
@@ -102,7 +102,6 @@ public class AddCommand implements Command {
 
     /**
      * This method calls the deleteCommand to delete the added values using AddCommand
-     * @author ilyas & ben
      */
     @Override
     public void undo(){
