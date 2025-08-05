@@ -22,63 +22,11 @@ public class UpdateCommand implements Command {
     private String email;
     private String[] oldValues;
 
-//    /**
-//     * Constructs a partially initialized UpdateCommand.
-//     * Note: This command will not be executable until all data is provided.
-//     *
-//     * @param receiver The receiver object that will execute the command.
-//     * @param index The index to be updated.
-//     */
-//    public UpdateCommand(Receiver receiver, Integer index) {
-//        this.receiver = receiver;
-//        this.index = index;
-//    }
-
-//    /**
-//     * Constructs an UpdateCommand for firstName update.
-//     *
-//     * @param receiver The receiver object that will execute the command.
-//     * @param index The index to be updated.
-//     * @param firstName The first name to be updated.
-//     */
-//    public UpdateCommand(Receiver receiver, Integer index, String firstName) {
-//        this.receiver = receiver;
-//        this.index = index;
-//        this.firstName = firstName.substring(0, 1).toUpperCase() + firstName.substring(1).toLowerCase();
-//    }
-
-//    /**
-//     * Constructs an UpdateCommand for firstName and lastName update.
-//     *
-//     * @param receiver The receiver object that will execute the command.
-//     * @param index The index to be updated.
-//     * @param firstName The first name to be updated.
-//     * @param lastName The last name to be updated.
-//     */
-//    public UpdateCommand(Receiver receiver, Integer index, String firstName, String lastName) {
-//        this.receiver = receiver;
-//        this.index = index;
-//        this.firstName = firstName.substring(0, 1).toUpperCase() + firstName.substring(1).toLowerCase();
-//        this.lastName = lastName.substring(0, 1).toUpperCase() + lastName.substring(1).toLowerCase();
-//    }
-
-//    /**
-//     * Constructs an UpdateCommand for firstName, lastName and email update.
-//     *
-//     * @param receiver The receiver object that will execute the command.
-//     * @param index The index to be updated.
-//     * @param firstName The first name to be updated.
-//     * @param lastName The last name to be updated.
-//     * @param email The email to be updated.
-//     */
-//    public UpdateCommand(Receiver receiver, Integer index, String firstName, String lastName, String email) {
-//        this.receiver = receiver;
-//        this.index = index;
-//        this.firstName = firstName.substring(0, 1).toUpperCase() + firstName.substring(1).toLowerCase();
-//        this.lastName = lastName.substring(0, 1).toUpperCase() + lastName.substring(1).toLowerCase();
-//        this.email = email;
-//    }
-
+    /**
+     * Constructor method for {@code UpdateCommand} class
+     * @param receiver the receiver instance
+     * @param param the data parameters for the update
+     */
     public UpdateCommand(Receiver receiver, String param) {
         this.receiver = receiver;
         String[] splitParams = param.split(" ");

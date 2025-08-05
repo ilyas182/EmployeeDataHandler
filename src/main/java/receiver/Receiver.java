@@ -4,6 +4,7 @@ import client.Client;
 import command.concretecommands.AddCommand;
 import command.Command;
 import command.concretecommands.DeleteCommand;
+import command.concretecommands.UndoCommand;
 import command.concretecommands.UpdateCommand;
 
 import java.io.BufferedWriter;
@@ -32,14 +33,6 @@ public class Receiver {
     public List<String[]> getDataStore() {
         return dataStore;
     }
-
-//    /**
-//     * get history stack
-//     * @return history a stack of Command objects (add, update, delete)
-//     */
-//    public Stack<Command> getHistory() {
-//        return history;
-//    }
 
     /**
      * addCommand method for adding an entry to data store.
@@ -106,35 +99,6 @@ public class Receiver {
             System.out.printf("%02d. %s %s %s\n", i+1, dataStore.get(i)[0], dataStore.get(i)[1], dataStore.get(i)[2]);
         }
     }
-
-    /**
-     * undoCommand for undoing an action.
-     * This method is called by the respective Concrete Command instances.
-     */
-    public void undoCommand() {
-        if (Client.history.size() <= 0) {
-            System.out.println("Nothing to undo");
-            return;
-        }
-
-        Command lastCommand = Client.history.pop();
-        System.out.println("Undo");
-
-        lastCommand.undo();
-
-//        if (lastCommand.isUndoable().equals("add")) {
-//            this.deleteCommand(dataStore.size());
-//        } else if (lastCommand.isUndoable().equals("update")) {
-//            String[] oldValues = ((UpdateCommand) lastCommand).getOldValues();
-//            Integer index = ((UpdateCommand) lastCommand).getIndex();
-//            this.updateCommand(index, oldValues[0], oldValues[1], oldValues[2]);
-//        } else { // Undo command.concretecommands.DeleteCommand
-//            String[] oldValues = ((DeleteCommand) lastCommand).getOldValues();
-//            Integer index = ((DeleteCommand) lastCommand).getIndex();
-//            this.addCommand(oldValues[0], oldValues[1], oldValues[2]);
-//        }
-    }
-
 
     /**
      * This method stores entries in Data Store into the dataStore.txt located in the src folder.

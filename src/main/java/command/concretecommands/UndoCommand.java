@@ -1,5 +1,6 @@
 package command.concretecommands;
 
+import client.Client;
 import command.Command;
 import exception.InvalidCommandException;
 import receiver.Receiver;
@@ -25,7 +26,13 @@ public class UndoCommand implements Command {
      */
     @Override
     public void execute() {
-        receiver.undoCommand();
+        if (Client.history.size() <= 0) {
+            System.out.println("Nothing to undo");
+            return;
+        }
+        Command lastCommand = Client.history.pop();
+        System.out.println("Undo");
+        lastCommand.undo();
     }
 
     /**
@@ -40,8 +47,6 @@ public class UndoCommand implements Command {
      * Calls the receiver undo method
      */
     @Override
-    public void undo() {
-        receiver.undoCommand();
-    }
+    public void undo() {}
 }
 
