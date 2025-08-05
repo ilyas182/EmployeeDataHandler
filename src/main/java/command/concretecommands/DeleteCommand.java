@@ -67,6 +67,7 @@ public class DeleteCommand implements Command {
         }
         oldValues = new String[]{receiver.getDataStore().get(index - 1)[0], receiver.getDataStore().get(index - 1)[1], receiver.getDataStore().get(index-1)[2]};
         receiver.deleteCommand(index);
+        System.out.println("Delete");
     }
 
     /**

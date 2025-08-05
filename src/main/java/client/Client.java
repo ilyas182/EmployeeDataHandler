@@ -66,20 +66,21 @@ public class Client {
                 undoCommand,
 //                listCommand,
                 listCommand,
+                deleteCommand2,
+                listCommand,
         };
 
         Invoker invoker = new Invoker();
         invoker.setCommandsForExecution(commands);
-
         invoker.executeCommand(history);
 
-        System.out.println("----------- Stack Info ------------");
-        System.out.println("Stack Size Left: " + history.size());
-
-        for (int i = 0; i < history.size(); i++) {
-            System.out.println(history.get(i));
-        }
-
-        receiver.storeToFile();
+//        System.out.println("----------- Stack Info ------------");
+//        System.out.println("Stack Size Left: " + history.size());
+//
+//        for (int i = 0; i < history.size(); i++) {
+//            System.out.println(history.get(i));
+//        }
+//
+//        receiver.storeToFile();
     }
 }

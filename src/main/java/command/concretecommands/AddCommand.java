@@ -80,6 +80,7 @@ public class AddCommand implements Command {
         if (!emailLegal(this.email)) {
             throw new InvalidCommandException("Incorrect email format: Thrown at Add command.Command");
         }
+        System.out.println("add");
         receiver.addCommand(firstName, lastName, email);
     }
 

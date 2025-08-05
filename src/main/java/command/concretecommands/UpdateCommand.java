@@ -69,13 +69,16 @@ public class UpdateCommand implements Command {
             throw new InvalidCommandException("No data provided for update: Thrown at Update command.Command");
           } else {
             if (firstName != null && lastName == null && email == null) {
+                System.out.println("update");
                 receiver.updateCommand(index, firstName);
             } else if (firstName != null && lastName != null && email == null) {
+                System.out.println("update");
                 receiver.updateCommand(index, firstName, lastName);
             } else {
                 if (!emailLegal(email)) {
                     throw new InvalidCommandException("Incorrect email format: Thrown at Update command.Command");
                 }
+                System.out.println("update");
                 receiver.updateCommand(index, firstName, lastName, email);
             }
         }

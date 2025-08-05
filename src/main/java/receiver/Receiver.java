@@ -41,7 +41,6 @@ public class Receiver {
      * @param email email to be added.
      */
     public void addCommand(String firstName, String lastName, String email) {
-        System.out.println("Add");
         dataStore.add(new String[]{firstName, lastName, email});
     }
 
@@ -51,7 +50,6 @@ public class Receiver {
      * @param firstName first name to be updated.
      */
     public void updateCommand(Integer index, String firstName) {
-        System.out.println("Update");
         dataStore.get(index - 1)[0] = firstName;
     }
 
@@ -62,7 +60,6 @@ public class Receiver {
      * @param lastName last name to be udpated.
      */
     public void updateCommand(Integer index, String firstName, String lastName) {
-        System.out.println("Update");
         dataStore.get(index - 1)[0] = firstName;
         dataStore.get(index - 1)[1] = lastName;
     }
@@ -75,7 +72,6 @@ public class Receiver {
      * @param email email to be updated.
      */
     public void updateCommand(Integer index, String firstName, String lastName, String email) {
-        System.out.println("Update");
         dataStore.get(index - 1)[0] = firstName;
         dataStore.get(index - 1)[1] = lastName;
         dataStore.get(index - 1)[2] = email;
@@ -87,7 +83,6 @@ public class Receiver {
      */
     public void deleteCommand(Integer index) {
         dataStore.remove(index - 1);
-        System.out.println("Delete");
     }
 
     /**
@@ -109,7 +104,7 @@ public class Receiver {
             // writing text to the buffer
             for (int i = 0; i < dataStore.size(); i++) {
                 String[] row = dataStore.get(i);
-                buff_writer.write(String.format("%02d. %s %s %s\n", i+1, row[0], row[1], row[2]));
+                buff_writer.write(String.format("%s %s %s\n", row[0], row[1], row[2]));
             }
         } catch (IOException e) {
             e.printStackTrace();
