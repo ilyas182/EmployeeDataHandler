@@ -18,6 +18,7 @@ public class AddCommand implements Command {
     private String lastName;
     private String email;
     private boolean allDataProvided = false;
+    private boolean wasExecuted = false;
 
     /**
      * Constructs a partially initialized AddCommand.
@@ -81,6 +82,7 @@ public class AddCommand implements Command {
         }
         System.out.println("add");
         receiver.add(firstName, lastName, email);
+        wasExecuted = true;
     }
 
     /**
@@ -104,8 +106,11 @@ public class AddCommand implements Command {
      * This method calls the deleteCommand to delete the added values using AddCommand
      */
     @Override
-    public void undo(){
-        receiver.delete(receiver.getDataStore().size());
-
+    public void undo() throws InvalidCommandException {
+        if (wasExecuted) {
+            receiver.delete(receiver.getDataStore().size());
+        } else {
+            throw new InvalidCommandException("Cannot undo, this command was never executed.");
+        }
     }
 }

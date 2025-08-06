@@ -4,8 +4,6 @@ import command.Command;
 import exception.InvalidCommandException;
 import receiver.Receiver;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import static helper.EmailChecker.emailLegal;
 
@@ -22,6 +20,7 @@ public class UpdateCommand implements Command {
     private String lastName;
     private String email;
     private String[] oldValues;
+    private boolean wasExecuted = false;
 
     /**
      * Constructor method for {@code UpdateCommand} class
@@ -72,15 +71,18 @@ public class UpdateCommand implements Command {
             if (firstName != null && lastName == null && email == null) {
                 System.out.println("update");
                 receiver.update(index, firstName);
+                wasExecuted = true;
             } else if (firstName != null && lastName != null && email == null) {
                 System.out.println("update");
                 receiver.update(index, firstName, lastName);
+                wasExecuted = true;
             } else {
                 if (!emailLegal(email)) {
                     throw new InvalidCommandException("Incorrect email format: Thrown at Update command.Command");
                 }
                 System.out.println("update");
                 receiver.update(index, firstName, lastName, email);
+                wasExecuted = true;
             }
         }
     }
@@ -123,7 +125,11 @@ public class UpdateCommand implements Command {
      * This method is to undo this instance to the previous values
      */
     @Override
-    public void undo() {
-        receiver.update(index, oldValues[0], oldValues[1], oldValues[2]);
+    public void undo() throws InvalidCommandException {
+        if (wasExecuted) {
+            receiver.update(index, oldValues[0], oldValues[1], oldValues[2]);
+        } else {
+            throw new InvalidCommandException("Cannot undo, this command was never executed.");
+        }
     }
 }

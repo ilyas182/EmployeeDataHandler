@@ -31,6 +31,7 @@ public class Client {
         Command addCommand1 = new AddCommand(receiver, "Ben Ng ...@gmail.com");
         Command addCommand2 = new AddCommand(receiver, "Benben NgNg ben@gmail.com");
         Command addCommand3 = new AddCommand(receiver, "ben super hello@gmail.com");
+        Command addCommand4 = new AddCommand(receiver, "bad bad bad@gmail.com");
         Command deleteCommand1 = new DeleteCommand(receiver, "10");
         Command deleteCommand2 = new DeleteCommand(receiver, "1");
         Command updateCommand1 = new UpdateCommand(receiver, "1 test testing ...@gmail.com");
@@ -42,6 +43,7 @@ public class Client {
         // command.Command List
         Command[] commands = new Command[]{
                 undoCommand,
+                listCommand,
 //                addCommand1,
 //                undoCommand,
 //                listCommand,
@@ -50,25 +52,24 @@ public class Client {
 //                deleteCommand1,
 //                listCommand,
 //                deleteCommand2,
-
 //                listCommand,
 //                undoCommand,
 //                addCommand1,
-                addCommand2,
-                addCommand3,
-                updateCommand1,
-                updateCommand2,
-                listCommand,
-                updateCommand3,
-                updateCommand4,
-                listCommand,
-                updateCommand5,
-                listCommand,
-                undoCommand,
+//                addCommand2,
+//                addCommand3,
+//                updateCommand1,
+//                updateCommand2,
 //                listCommand,
-                listCommand,
-                deleteCommand2,
-                listCommand,
+//                updateCommand3,
+//                updateCommand4,
+//                listCommand,
+//                updateCommand5,
+//                listCommand,
+//                undoCommand,
+//                listCommand,
+//                listCommand,
+//                deleteCommand2,
+//                listCommand,
         };
 
         Invoker invoker = new Invoker();

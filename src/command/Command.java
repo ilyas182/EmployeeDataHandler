@@ -24,5 +24,5 @@ public interface Command {
     /**
      * Undo method
      */
-    void undo();
+    void undo() throws InvalidCommandException;
 }

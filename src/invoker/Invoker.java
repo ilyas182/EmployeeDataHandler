@@ -37,7 +37,6 @@ public class Invoker {
                 }
 
             } catch (InvalidCommandException e) {
-                System.out.println("Exception Caught at invoker.Invoker: Illegal Argument Exception");
                 System.out.println(e.getMessage());
             }
         }
