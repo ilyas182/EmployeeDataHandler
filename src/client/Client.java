@@ -34,7 +34,7 @@ public class Client {
         Command addCommand4 = new AddCommand(receiver, "bad bad bad@gmail.com");
         Command deleteCommand1 = new DeleteCommand(receiver, "10");
         Command deleteCommand2 = new DeleteCommand(receiver, "1");
-        Command updateCommand1 = new UpdateCommand(receiver, "1 test testing ...@gmail.com");
+        Command updateCommand1 = new UpdateCommand(receiver, "k 1 testing ben@gmail.com");
         Command updateCommand2 = new UpdateCommand(receiver, "10");
         Command updateCommand3 = new UpdateCommand(receiver, "1 ilyas");
         Command updateCommand4 = new UpdateCommand(receiver, "2 taufiq rahmat");
@@ -46,6 +46,8 @@ public class Client {
                 addCommand2,
                 addCommand3,
 //                undoCommand,
+                listCommand,
+                updateCommand1,
                 listCommand,
 //                addCommand1,
 //                undoCommand,
