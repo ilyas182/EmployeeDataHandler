@@ -30,22 +30,26 @@ public class UpdateCommand implements Command {
     public UpdateCommand(Receiver receiver, String param) {
         this.receiver = receiver;
         String[] splitParams = param.split(" ");
-        if (splitParams.length == 1) {
-            this.index = Integer.parseInt(splitParams[0]);
-        } else if (splitParams.length == 2) {
-            this.index = Integer.parseInt(splitParams[0]);
-            this.firstName = splitParams[1];
-        } else if (splitParams.length == 3) {
-            this.index = Integer.parseInt(splitParams[0]);
-            this.firstName = splitParams[1];
-            this.lastName = splitParams[2];
-        } else if (splitParams.length == 4) {
-            this.index = Integer.parseInt(splitParams[0]);
-            this.firstName = splitParams[1];
-            this.lastName = splitParams[2];
-            this.email = splitParams[3];
+        try {
+            if (splitParams.length == 1) {
+                this.index = Integer.parseInt(splitParams[0]);
+            } else if (splitParams.length == 2) {
+                this.index = Integer.parseInt(splitParams[0]);
+                this.firstName = splitParams[1];
+            } else if (splitParams.length == 3) {
+                this.index = Integer.parseInt(splitParams[0]);
+                this.firstName = splitParams[1];
+                this.lastName = splitParams[2];
+            } else if (splitParams.length == 4) {
+                this.index = Integer.parseInt(splitParams[0]);
+                this.firstName = splitParams[1];
+                this.lastName = splitParams[2];
+                this.email = splitParams[3];
+            }
         }
-
+        catch (NumberFormatException e) {
+            System.out.println(e.getMessage());
+        }
         if (firstName != null) {
             this.firstName = firstName.substring(0, 1).toUpperCase() + firstName.substring(1).toLowerCase();
         }
@@ -61,6 +65,9 @@ public class UpdateCommand implements Command {
      */
     @Override
     public void execute() throws InvalidCommandException {
+        if (index == null) {
+            throw new InvalidCommandException("Invalid index");
+        }
         if (index > receiver.getDataStore().size() || index < 1) {
             throw new InvalidCommandException("Incorrect Index provided: Thrown at Update command.Command");
         }
