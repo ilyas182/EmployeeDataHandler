@@ -30,6 +30,7 @@ public class UpdateCommand implements Command {
     public UpdateCommand(Receiver receiver, String param) {
         this.receiver = receiver;
         String[] splitParams = param.split(" ");
+
         if (splitParams.length == 1) {
             this.index = Integer.parseInt(splitParams[0]);
         } else if (splitParams.length == 2) {
