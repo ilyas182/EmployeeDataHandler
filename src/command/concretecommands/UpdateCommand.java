@@ -48,7 +48,7 @@ public class UpdateCommand implements Command {
             }
         }
         catch (NumberFormatException e) {
-            System.out.println(e.getMessage());
+            System.out.println("Index must be an integer");
         }
         if (firstName != null) {
             this.firstName = firstName.substring(0, 1).toUpperCase() + firstName.substring(1).toLowerCase();
@@ -84,7 +84,8 @@ public class UpdateCommand implements Command {
                 receiver.update(index, firstName, lastName);
                 wasExecuted = true;
             } else {
-                if (!emailLegal(email)) {
+                this.email = emailLegal(this.email);
+                if (this.email == null) {
                     throw new InvalidCommandException("Incorrect email format: Thrown at Update command.Command");
                 }
                 System.out.println("update");

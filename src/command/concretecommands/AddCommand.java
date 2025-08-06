@@ -64,7 +64,9 @@ public class AddCommand implements Command {
         if (!this.allDataProvided) {
             throw new InvalidCommandException("All inputs needs to be provided for Add: Thrown at Add command.Command");
         }
-        if (!emailLegal(this.email)) {
+        this.email = emailLegal(this.email);
+
+        if (this.email == null) {
             throw new InvalidCommandException("Incorrect email format: Thrown at Add command.Command");
         }
         System.out.println("add");
