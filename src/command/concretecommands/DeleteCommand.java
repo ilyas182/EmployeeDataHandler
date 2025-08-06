@@ -92,6 +92,6 @@ public class DeleteCommand implements Command {
      */
     @Override
     public void undo(){
-        receiver.add(oldValues[0], oldValues[1], oldValues[2]);
+        receiver.addAtIndex(index, oldValues[0], oldValues[1], oldValues[2]);
     }
 }

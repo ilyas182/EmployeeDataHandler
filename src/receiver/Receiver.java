@@ -37,6 +37,17 @@ public class Receiver {
     }
 
     /**
+     * add to index method for adding an entry to a particular index
+     * @param index
+     * @param firstName
+     * @param lastName
+     * @param email
+     */
+    public void addAtIndex(Integer index, String firstName, String lastName, String email) {
+        dataStore.add(index - 1, new String[]{firstName, lastName, email});
+    }
+
+    /**
      * updateCommand for updating an existing data entry.
      * @param index index to be updated.
      * @param firstName first name to be updated.
@@ -86,6 +97,7 @@ public class Receiver {
             System.out.printf("%02d. %s %s %s\n", i+1, dataStore.get(i)[0], dataStore.get(i)[1], dataStore.get(i)[2]);
         }
     }
+
 
     /**
      * This method stores entries in Data Store into the dataStore.txt located in the src folder.

@@ -28,53 +28,37 @@ public class Client {
         // Concrete Commands
         Command listCommand = new ListCommand(receiver);
         Command undoCommand = new UndoCommand(receiver, history);
-        Command addCommand1 = new AddCommand(receiver, "...@gmail.com");
-        Command addCommand2 = new AddCommand(receiver, "Benben NgNg ben@gmail.com");
-        Command addCommand3 = new AddCommand(receiver, "ben super hello@gmail.com");
-        Command addCommand4 = new AddCommand(receiver, "bad bad bad@gmail.com");
-        Command deleteCommand1 = new DeleteCommand(receiver, "10");
-        Command deleteCommand2 = new DeleteCommand(receiver, "1");
-        Command updateCommand1 = new UpdateCommand(receiver, "k 1 testing ben@gmail.com");
-        Command updateCommand2 = new UpdateCommand(receiver, "10");
-        Command updateCommand3 = new UpdateCommand(receiver, "1 ilyas");
-        Command updateCommand4 = new UpdateCommand(receiver, "2 taufiq rahmat");
-        Command updateCommand5 = new UpdateCommand(receiver, "2 wei long weilong@gmail.com");
+        Command addCommand1 = new AddCommand(receiver, "First_name Last_name Email");
+        Command addCommand2 = new AddCommand(receiver, "John Doe simple@example.com");
+        Command addCommand3 = new AddCommand(receiver, "hanna MOon tetter.tots@potatoesarelife.com");
+        Command addCommand4 = new AddCommand(receiver, "Ah Boon green-tea@teaforlife.com");
+        Command updateCommand1 = new UpdateCommand(receiver, "3 Adam");
+        Command updateCommand2 = new UpdateCommand(receiver, "1 blue bell ice-cream@alaskaFields.org");
+        Command deleteCommand1 = new DeleteCommand(receiver, "1");
+
+
 
         // command.Command List
         Command[] commands = new Command[]{
                 addCommand1,
                 addCommand2,
                 addCommand3,
-//                undoCommand,
+                addCommand4,
                 listCommand,
                 updateCommand1,
                 listCommand,
-//                addCommand1,
-//                undoCommand,
-//                listCommand,
-//                addCommand2,
-//                listCommand,
-//                deleteCommand1,
-//                listCommand,
-//                deleteCommand2,
-//                listCommand,
-//                undoCommand,
-//                addCommand1,
-//                addCommand2,
-//                addCommand3,
-//                updateCommand1,
-//                updateCommand2,
-//                listCommand,
-//                updateCommand3,
-//                updateCommand4,
-//                listCommand,
-//                updateCommand5,
-//                listCommand,
-//                undoCommand,
-//                listCommand,
-//                listCommand,
-//                deleteCommand2,
-//                listCommand,
+                updateCommand2,
+                listCommand,
+                deleteCommand1,
+                listCommand,
+                undoCommand,
+                listCommand,
+                undoCommand,
+                listCommand,
+                undoCommand,
+                listCommand,
+                undoCommand,
+                listCommand,
         };
 
         Invoker invoker = new Invoker();
