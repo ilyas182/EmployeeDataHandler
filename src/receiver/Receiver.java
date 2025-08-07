@@ -106,7 +106,7 @@ public class Receiver {
      * This method will either create a file if non exists or append to existing file.
      */
     public void storeToFile() {
-        try (BufferedWriter buff_writer = Files.newBufferedWriter(Path.of("./src/dataStore.txt"), StandardOpenOption.CREATE, StandardOpenOption.APPEND)) {
+        try (BufferedWriter buff_writer = Files.newBufferedWriter(Path.of("./src/dataStore.txt"), StandardOpenOption.CREATE)) {
             // writing text to the buffer
             for (int i = 0; i < dataStore.size(); i++) {
                 String[] row = dataStore.get(i);

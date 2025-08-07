@@ -66,6 +66,6 @@ public class Client {
         invoker.setCommandsForExecution(commands);
         invoker.executeCommand(history);
 
-//        receiver.storeToFile();
+        receiver.storeToFile();
     }
 }
