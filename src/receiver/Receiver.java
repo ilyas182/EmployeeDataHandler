@@ -20,6 +20,10 @@ public class Receiver {
 
     private List<String[]> dataStore = new ArrayList<>();
 
+    public Receiver() {
+        loadFromFile();
+    }
+
     /**
      * get data store arraylist
      * @return dataStore an ArrayList of String Lists that stores the data.
@@ -117,10 +121,13 @@ public class Receiver {
         }
     }
 
+    /**
+     * method to load data from existing file if it exists
+     */
     public void loadFromFile() {
         Path path = Path.of("./src/dataStore.txt");
         if (!Files.exists(path)) {
-            System.out.println("File not found");
+            return;
         }
         else {
             try (BufferedReader reader = new BufferedReader(new FileReader(path.toFile()))) {
