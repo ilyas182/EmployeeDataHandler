@@ -61,10 +61,11 @@ public class Client {
                 listCommand,
         };
 
+        receiver.loadFromFile();
         Invoker invoker = new Invoker();
         invoker.setCommandsForExecution(commands);
         invoker.executeCommand(history);
 
-        receiver.storeToFile();
+//        receiver.storeToFile();
     }
 }

@@ -1,6 +1,8 @@
 package receiver;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -112,6 +114,24 @@ public class Receiver {
             }
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    public void loadFromFile() {
+        Path path = Path.of("./src/dataStore.txt");
+        if (!Files.exists(path)) {
+            System.out.println("File not found");
+        }
+        else {
+            try (BufferedReader reader = new BufferedReader(new FileReader(path.toFile()))) {
+                String line;
+                while ((line = reader.readLine()) != null) {
+//                    System.out.println(line); // Process each line
+                    dataStore.add(line.split(" "));
+                }
+            } catch (IOException e) {
+                System.err.println("Error reading file: " + e.getMessage());
+            }
         }
     }
 
