@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 
 public class EmailChecker {
 
-    private static final String EMAIL_REGEX = "^[a-zA-Z0-9]+(?:[._-][a-zA-Z0-9]+)*@[a-zA-Z0-9]+(?:[-.][a-zA-Z0-9]+)*\\.[a-z]{2,3}$";
+    private static final String EMAIL_REGEX = "^[A-Za-z0-9_]+(?:[.-][A-Za-z0-9_]+)*@[A-Za-z0-9]+(?:[-.][A-Za-z0-9]+)*\\.[a-z]{2,3}$";
     private static final String LATIN_WORD_REGEX = "^[a-zA-Z][a-zA-Z0-9_]*$";
 
     private static final Pattern emailPattern = Pattern.compile(EMAIL_REGEX);
