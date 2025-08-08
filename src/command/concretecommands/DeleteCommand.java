@@ -33,7 +33,12 @@ public class DeleteCommand implements Command {
      */
     public DeleteCommand(Receiver receiver, String index) {
         this.receiver = receiver;
-        this.index = Integer.parseInt(index);
+        try {
+            this.index = Integer.parseInt(index);
+        }
+        catch (NumberFormatException e) {
+            System.out.println("Index must be an integer");
+        }
     }
 
     /**
@@ -60,7 +65,7 @@ public class DeleteCommand implements Command {
     @Override
     public void execute() throws InvalidCommandException {
         if (this.index == null) {
-            throw new InvalidCommandException("No Index Provided: Thrown at Delete command.Command");
+            throw new InvalidCommandException("Invalid index provided: Thrown at Delete command.Command");
         }
         if (this.index > receiver.getDataStore().size() || this.index < 1) {
             throw new InvalidCommandException("Incorrect Index Provided: Thrown at Delete command.Command");

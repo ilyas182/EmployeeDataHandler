@@ -34,7 +34,7 @@ public class Client {
         Command addCommand4 = new AddCommand(receiver, "Ah Boon green-tea@teaforlife.com");
         Command updateCommand1 = new UpdateCommand(receiver, "3 Adam");
         Command updateCommand2 = new UpdateCommand(receiver, "1 blue bell ice-cream@alaskaFields.org");
-        Command deleteCommand1 = new DeleteCommand(receiver, "1");
+        Command deleteCommand1 = new DeleteCommand(receiver, "A");
 
 
 
@@ -43,6 +43,7 @@ public class Client {
                 addCommand1,
                 addCommand3,
                 listCommand,
+                deleteCommand1
         };
 
 //        receiver.loadFromFile();
