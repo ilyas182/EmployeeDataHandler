@@ -28,7 +28,7 @@ public class Client {
         // Concrete Commands
         Command listCommand = new ListCommand(receiver);
         Command undoCommand = new UndoCommand(receiver, history);
-        Command addCommand1 = new AddCommand(receiver, "First_name Last_name email");
+        Command addCommand1 = new AddCommand(receiver, "first_name last_name email");
         Command addCommand2 = new AddCommand(receiver, "2 Doe simple@example.com");
         Command addCommand3 = new AddCommand(receiver, "hanna 5 tetter.tots@potatoesarelife.com");
         Command addCommand4 = new AddCommand(receiver, "Ah Boon green-tea@teaforlife.com");
@@ -40,7 +40,7 @@ public class Client {
 
         // command.Command List
         Command[] commands = new Command[]{
-                addCommand2,
+                addCommand1,
                 addCommand3,
                 listCommand,
         };

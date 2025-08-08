@@ -2,7 +2,6 @@ package command.concretecommands;
 
 import command.Command;
 import exception.InvalidCommandException;
-import helper.NameChecker;
 import receiver.Receiver;
 
 import java.util.Arrays;
@@ -69,10 +68,6 @@ public class AddCommand implements Command {
 
         if (this.email == null) {
             throw new InvalidCommandException("Incorrect email format: Thrown at Add command.Command");
-        }
-
-        if (!NameChecker.checkName(this.firstName) || !NameChecker.checkName(this.lastName)) {
-            throw new InvalidCommandException("Incorrect name format: Thrown at Add command.Command");
         }
         System.out.println("add");
         receiver.add(firstName, lastName, email);

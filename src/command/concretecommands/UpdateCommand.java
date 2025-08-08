@@ -2,7 +2,6 @@ package command.concretecommands;
 
 import command.Command;
 import exception.InvalidCommandException;
-import helper.NameChecker;
 import receiver.Receiver;
 
 
@@ -77,16 +76,10 @@ public class UpdateCommand implements Command {
             throw new InvalidCommandException("No data provided for update: Thrown at Update command.Command");
           } else {
             if (firstName != null && lastName == null && email == null) {
-                if (!NameChecker.checkName(this.firstName)) {
-                    throw new InvalidCommandException("Incorrect name format: Thrown at Update command.Command");
-                }
                 System.out.println("update");
                 receiver.update(index, firstName);
                 wasExecuted = true;
             } else if (firstName != null && lastName != null && email == null) {
-                if (!NameChecker.checkName(this.lastName)) {
-                    throw new InvalidCommandException("Incorrect name format: Thrown at Update command.Command");
-                }
                 System.out.println("update");
                 receiver.update(index, firstName, lastName);
                 wasExecuted = true;
