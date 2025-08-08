@@ -29,8 +29,8 @@ public class Client {
         Command listCommand = new ListCommand(receiver);
         Command undoCommand = new UndoCommand(receiver, history);
         Command addCommand1 = new AddCommand(receiver, "First_name Last_name email");
-        Command addCommand2 = new AddCommand(receiver, "John Doe simple@example.com");
-        Command addCommand3 = new AddCommand(receiver, "hanna MOon tetter.tots@potatoesarelife.com");
+        Command addCommand2 = new AddCommand(receiver, "2 Doe simple@example.com");
+        Command addCommand3 = new AddCommand(receiver, "hanna 5 tetter.tots@potatoesarelife.com");
         Command addCommand4 = new AddCommand(receiver, "Ah Boon green-tea@teaforlife.com");
         Command updateCommand1 = new UpdateCommand(receiver, "3 Adam");
         Command updateCommand2 = new UpdateCommand(receiver, "1 blue bell ice-cream@alaskaFields.org");
@@ -40,24 +40,8 @@ public class Client {
 
         // command.Command List
         Command[] commands = new Command[]{
-                addCommand1,
                 addCommand2,
                 addCommand3,
-                addCommand4,
-                listCommand,
-                updateCommand1,
-                listCommand,
-                updateCommand2,
-                listCommand,
-                deleteCommand1,
-                listCommand,
-                undoCommand,
-                listCommand,
-                undoCommand,
-                listCommand,
-                undoCommand,
-                listCommand,
-                undoCommand,
                 listCommand,
         };
 
