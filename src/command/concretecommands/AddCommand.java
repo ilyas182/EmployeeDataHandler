@@ -41,17 +41,18 @@ public class AddCommand implements Command {
      */
     public AddCommand(Receiver receiver, String param) {
         String[] splitParam = param.split(" ");
-        try {
-            this.receiver = receiver;
-            this.firstName = splitParam[0];
-            this.lastName = splitParam[1];
-            this.email = splitParam[2];
-            this.firstName = firstName.substring(0, 1).toUpperCase() + firstName.substring(1).toLowerCase();
-            this.lastName = lastName.substring(0, 1).toUpperCase() + lastName.substring(1).toLowerCase();
-            this.allDataProvided = true;
-        } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println(e.getMessage());
-        }
+            if (splitParam.length == 3) {
+                this.receiver = receiver;
+                this.firstName = splitParam[0];
+                this.lastName = splitParam[1];
+                this.email = splitParam[2];
+                this.firstName = firstName.substring(0, 1).toUpperCase() + firstName.substring(1).toLowerCase();
+                this.lastName = lastName.substring(0, 1).toUpperCase() + lastName.substring(1).toLowerCase();
+                this.allDataProvided = true;
+            }
+            else
+                this.allDataProvided = false;
+
     }
 
     /**
